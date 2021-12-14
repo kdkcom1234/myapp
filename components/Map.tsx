@@ -8,6 +8,13 @@ export default function Map() {
   const [location, setLocation] = useState<Location.LocationObject | null>(
     null
   );
+
+  const [locationList, setLocationList] = useState([
+    { latitude: 37.5025936, longitude: 127.029604, title: "역삼공원" },
+    { latitude: 37.4984548, longitude: 127.0211041, title: "명달공원" },
+    { latitude: 37.4972322, longitude: 127.0307145, title: "역삼까치공원" },
+  ]);
+
   useEffect(() => {
     (async () => {
       // 위치정보 권한 요청
@@ -37,11 +44,20 @@ export default function Map() {
           region={{
             latitude: location.coords.latitude,
             longitude: location.coords.longitude,
-            latitudeDelta: 0.005,
-            longitudeDelta: 0.005,
+            latitudeDelta: 0.02,
+            longitudeDelta: 0.02,
           }}
         >
-          {/* <Marker /> */}
+          {locationList.length > 0 &&
+            locationList.map((loc) => (
+              <Marker
+                title={loc.title}
+                coordinate={{
+                  latitude: loc.latitude,
+                  longitude: loc.longitude,
+                }}
+              />
+            ))}
         </MapView>
       )}
     </View>
