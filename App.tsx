@@ -13,7 +13,8 @@ import {
 } from "@react-navigation/bottom-tabs";
 
 // 탭별 컴포넌트 import
-import Home from "./components/Home";
+// import Home from "./components/Home";
+import Webview from "./components/Webview";
 import Todo from "./components/Todo";
 import Photo from "./components/Photo";
 import Product from "./components/Product";
@@ -35,7 +36,7 @@ const Tab = createBottomTabNavigator();
 
 // 스택 네비게이터 생성
 const ProductStack = createNativeStackNavigator();
-const HomeStack = createNativeStackNavigator();
+// const HomeStack = createNativeStackNavigator();
 
 // 스택 스크린 생성
 const ProductScreen = () => {
@@ -46,14 +47,14 @@ const ProductScreen = () => {
     </ProductStack.Navigator>
   );
 };
-const HomeScreen = () => {
-  return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen name="Home" component={Home}></HomeStack.Screen>
-      <HomeStack.Screen name="Detail" component={Detail}></HomeStack.Screen>
-    </HomeStack.Navigator>
-  );
-};
+// const HomeScreen = () => {
+//   return (
+//     <HomeStack.Navigator>
+//       <HomeStack.Screen name="Home" component={Home}></HomeStack.Screen>
+//       <HomeStack.Screen name="Detail" component={Detail}></HomeStack.Screen>
+//     </HomeStack.Navigator>
+//   );
+// };
 
 // 탭네비게이터 옵션
 // ({route}) => ({} as BottomTabNavigationOptions)
@@ -68,11 +69,11 @@ const screenOptions = ({
     tabBarIcon: ({ focused, color, size }) => {
       // 경로명으로 아이콘 변경
       switch (route.name) {
-        case "HomeStack":
+        case "Webview":
           return focused ? (
-            <Ionicons name={"home"} size={size} color={color} />
+            <Ionicons name={"browsers"} size={size} color={color} />
           ) : (
-            <Ionicons name={"home-outline"} size={size} color={color} />
+            <Ionicons name={"browsers-outline"} size={size} color={color} />
           );
         case "Todo":
           return focused ? (
@@ -112,11 +113,7 @@ export default function App() {
       <NavigationContainer>
         {/* screenOptions는 객체 또는 객체반환함수 */}
         <Tab.Navigator screenOptions={screenOptions}>
-          <Tab.Screen
-            name="HomeStack"
-            component={HomeScreen}
-            options={{ headerShown: false, tabBarLabel: "Home" }}
-          />
+          <Tab.Screen name="Webview" component={Webview} />
           <Tab.Screen name="Todo" component={Todo} options={{}} />
           <Tab.Screen name="Photo" component={Photo} options={{}} />
           <Tab.Screen
