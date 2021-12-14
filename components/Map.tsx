@@ -51,6 +51,7 @@ export default function Map() {
           {locationList.length > 0 &&
             locationList.map((loc) => (
               <Marker
+                key={loc.title}
                 title={loc.title}
                 coordinate={{
                   latitude: loc.latitude,
