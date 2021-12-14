@@ -1,0 +1,9 @@
+// MapView
+https://docs.expo.dev/versions/latest/sdk/map-view/
+expo install react-native-maps
+
+// react-native-map
+https://github.com/react-native-maps/react-native-maps#readme
+
+// Location
+expo install expo-location

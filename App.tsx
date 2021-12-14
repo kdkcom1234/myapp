@@ -17,7 +17,7 @@ import Home from "./components/Home";
 import Todo from "./components/Todo";
 import Photo from "./components/Photo";
 import Product from "./components/Product";
-import Favorite from "./components/Favorite";
+import Map from "./components/Map";
 
 // 스택 컴포넌트 import
 import Detail from "./components/Detail";
@@ -92,11 +92,11 @@ const screenOptions = ({
           ) : (
             <Ionicons name={"albums-outline"} size={size} color={color} />
           );
-        case "Favorite":
+        case "Map":
           return focused ? (
-            <Ionicons name={"heart"} size={size} color={color} />
+            <Ionicons name={"map"} size={size} color={color} />
           ) : (
-            <Ionicons name={"heart-outline"} size={size} color={color} />
+            <Ionicons name={"map-outline"} size={size} color={color} />
           );
       }
     },
@@ -124,7 +124,7 @@ export default function App() {
             component={ProductScreen}
             options={{ headerShown: false, tabBarLabel: "Product" }}
           />
-          <Tab.Screen name="Favorite" component={Favorite} options={{}} />
+          <Tab.Screen name="Map" component={Map} options={{}} />
         </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
