@@ -3,22 +3,39 @@ https://docs.expo.dev/eas/
 // eas cli 설치
 npm install -g eas-cli
 
-// expo 로그인
+// expo 로그인(회원가입, expo.dev/signup)
 eas login
 
 // eas 설정
 eas build:configure
+-> 환경구성할 플랫폼 선택 All/iOS/Android
+-> 패키지명 입력 예) com.naver.blog, com.gdg.myapp
 
 // 빌드 실행
 eas build -p android
 eas build -p ios
-
-// expo 웹에서 빌드 큐 상태 확인
+-> (최초실행시) keystore생성 Y
+  -> https://expo.dev/accounts/계정명/projects/프로젝트명/credentials
+     여기서 다운로드가능함(zip파일안에 jks있음)
+-> expo 웹에서 빌드 큐 상태 확인
 
 // apk 파일 생성
+eas.json에
+    "preview": {
+	  "android": {
+	    "buildType": "apk"
+	  },
+     ...
+    }
+
+eas build -p android --profile preview
 
 
------------------------------------------
+
+
+
+
+--예전방법-----------------------------------------
 expo build:android
 - package명을 작성(스토어 내의 애플리케이션 id)
   ex) com.naver.blog, com.gdg.myapp
