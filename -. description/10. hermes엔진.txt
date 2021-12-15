@@ -1,0 +1,8 @@
+// react native의 신규 js엔진
+// 빌드 사이즈 및 메모리 사용량 감소, 처리성능 업
+
+  "expo": {
+     ...
+    "jsEngine": "hermes",
+     ...
+  }

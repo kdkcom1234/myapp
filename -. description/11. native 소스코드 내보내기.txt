@@ -1,0 +1,8 @@
+expo run:android
+expo run:android
+
+/android
+/ios
+
+디렉터리 생성이 되고, 네이티브소스 제어가능
+-> 하지만 변경한 네이티브소스는 eas build로만 빌드 가능함
